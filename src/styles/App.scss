@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#main-header {
+    display: flex;
+    width: 100vw;
+    background-color: rgb(160, 64, 64);
+    nav{
+        display: flex;
+        justify-content: flex-end;
+        a{
+            margin-left: 2rem;
+            color: black;
+        }  
+    }
+}
