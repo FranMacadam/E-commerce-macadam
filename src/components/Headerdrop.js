@@ -1,7 +1,6 @@
-import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const HeaderDrop = () => {
+const Headerdrop = () => {
   return (
     <div>
       <Dropdown>
@@ -19,4 +18,4 @@ const HeaderDrop = () => {
   )
 }
 
-export default HeaderDrop;
+export default Headerdrop;

@@ -1,4 +1,5 @@
-import HeaderDrop from "./Dropdown";
+import CartWidget from './CartWidget';
+import Headerdrop from './Headerdrop'
 
 const Navbar = () => {
     return (
@@ -9,7 +10,8 @@ const Navbar = () => {
             <nav>
                 <a href='aa'>Home</a>
                 <a href='ab'>Products</a>
-                <HeaderDrop></HeaderDrop>
+                <Headerdrop/>
+                <CartWidget/>
             </nav>
         </header>
     )
