@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemCount from './ItemCount'
 
 const data = [
     {
@@ -27,10 +28,11 @@ const ItemListContainer = (props) => {
     <div className='productContainer'>
         <p>{props.greeting}</p>
         {data.map(products =>{
-            return <a href='a' className="products">{products.id}</a>
+            return <ItemCount stock={10} />
         })}
     </div>
   );
+
 }
 
 export default ItemListContainer;
