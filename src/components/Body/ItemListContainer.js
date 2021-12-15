@@ -28,8 +28,8 @@ const ItemListContainer = (props) => {
 
   const addToCart = () => {
     console.log("I added the product to the cart!")
-    props.onAdd()
   }
+  
 
 
   return (
