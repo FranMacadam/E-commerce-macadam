@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const ItemCount = (props) => {
 
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(props.initial);
 
 
     const plus = () => {
@@ -16,14 +16,12 @@ const ItemCount = (props) => {
 
     }
 
-
     const onAdd = () => {
-        setCounter(0)
+        setCounter(props.initial)
     }
 
-
     const minus = () => {
-        if(counter > 0){
+        if(counter > 1){
             setCounter(counter - 1)
         } else {
             console.log("What are you thinking?")
