@@ -8,7 +8,7 @@ const ItemCount = (props) => {
 
 
     const plus = () => {
-        if(counter < props.stock){
+        if (counter < props.stock) {
             setCounter(counter + 1)
         } else {
             console.log("No more stock, i'm sorry.")
@@ -23,33 +23,27 @@ const ItemCount = (props) => {
     const addToCartOnAdd = () => {
         props.addToCart();
         onAdd();
-      }
+    }
 
     const minus = () => {
-        if(counter > 1){
+        if (counter > 1) {
             setCounter(counter - 1)
         } else {
             console.log("What are you thinking?")
         }
     }
 
-    
+
 
     return (
-        <>
-            <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Product Title</Card.Title>
-                    <Card.Text>
-                        {counter}
-                    </Card.Text>
-                    <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
-                    <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
-                    <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
-                </Card.Body>
-            </Card>
-        </>
+        <div class='counterContainer'>
+            <Card.Text id='counter'>
+                {counter}
+            </Card.Text>
+            <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
+            <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
+            <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
+        </div>
     );
 };
 

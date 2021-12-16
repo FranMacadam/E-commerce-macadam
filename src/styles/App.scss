@@ -27,15 +27,18 @@
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
-    .products{
-        background-color: black;
-        width: 2rem;
-        display: flex;
-        justify-content: center;
-    }
 }
 
 #itemCards{
-    width: 33%;
+    width: 5rem;
 }
 
+.counterContainer{
+    background-color: black;
+}
+
+#counter{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
