@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const ItemCount = (props) => {
+const ItemCount = props => {
 
     const [counter, setCounter] = useState(props.initial);
 
@@ -36,7 +36,7 @@ const ItemCount = (props) => {
 
 
     return (
-        <div class='counterContainer'>
+        <div className='counterContainer'>
             <Card.Text id='counter'>
                 {counter}
             </Card.Text>

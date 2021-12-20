@@ -1,16 +1,15 @@
 import CartWidget from './CartWidget';
-import Headerdrop from './Headerdrop'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <header id="main-header" className="navbar">
-            <span class="material-icons">
+            <span className="material-icons">
                 shopping_bag
             </span>
             <nav>
-                <a href='aa'>Home</a>
-                <a href='ab'>Products</a>
-                <Headerdrop/>
+                <Link to='/Home'>Home</Link>
+                <Link to='/Products'>Products</Link>
                 <CartWidget/>
             </nav>
         </header>
