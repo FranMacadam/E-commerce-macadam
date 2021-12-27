@@ -1,3 +1,5 @@
+import "./Header.scss";
+
 const CartWidget = () => {
     return (
         <div>

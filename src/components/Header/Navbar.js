@@ -1,17 +1,25 @@
+import "./Header.scss";
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <header id="main-header" className="navbar">
-            <span className="material-icons">
-                shopping_bag
-            </span>
-            <nav>
-                <Link to='/Home'>Home</Link>
-                <Link to='/Products'>Products</Link>
-                <CartWidget/>
-            </nav>
+            <Link to="/Home">
+                <span className="brandName">Pizza & Beer</span>
+            </Link>
+            <ul className='navLinks'>
+                <li>
+                    <Link to='/Pizzas'>Pizzas</Link>
+                </li>
+                <li>
+                    <Link to='/Beers'>Beers</Link>
+                </li>
+                <li>
+                    <CartWidget />
+                </li>
+            </ul>
+            <a href="aa"><button className="btnHeader">contact</button></a>
         </header>
     )
 };

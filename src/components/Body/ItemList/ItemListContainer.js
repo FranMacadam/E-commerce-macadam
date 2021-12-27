@@ -21,7 +21,7 @@ const ItemListContainer = props => {
   }, []);
 
   return (
-    <div className="productContainer">
+    <div className="itemListContainer">
       <ItemList products={data} addToCart={addToCart} />
     </div>
   );
