@@ -1,14 +1,17 @@
-import ItemDetail from "../ItemDetail/ItemDetail"
 import './Item.scss'
+import { Link } from 'react-router-dom'
 
 const Item = (props) => {
     return (
         <div className="cardsContainer">
-            <div className="cards">
+            <div className='cardImg'>
+                <img alt='cardImg' src={props.product.image} />
+            </div>
+            <div className='content'>
                 <h1 className='cardTitle'>{props.product.title}</h1>
-                <img alt='cardImg' src={props.product.img} className='cardImg' />
-                <p className='productPrice'>{props.product.price}</p>
-                <ItemDetail />
+                <p className='productPrice'>${props.product.price}</p>
+                <span>{props.product.id}</span>
+                <Link to={`/products/${props.product.id}`}><button>Detail</button></Link>
             </div>
         </div>
     )

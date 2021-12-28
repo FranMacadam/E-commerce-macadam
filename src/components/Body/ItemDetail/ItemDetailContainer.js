@@ -3,42 +3,36 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
-const initialProduct = {
-  name : 'Pizza1',
-  price : 100,
-  id: 1,
-}
-
 const ItemDetailContainer = () => {
 
-  let {id} = useParams()
-  let [product, setProduct] = useState({})
+  const [product, setProduct] = useState([]);
 
-  const getItem = () => {
+  let { id } = useParams();
 
-    const promise = new Promise((resolve, reject) => {
 
-      setTimeout(() => {
-        let product = initialProduct.filter((product) => product.id === id)
-        console.log(product)
-        resolve(product);
-      }, 3000);
-    });
+  const url = `https://fakestoreapi.com/products/${id}`;
 
-    promise
-    .then((product) => {
-      setProduct(product);
-    })
+  const getProduct = async () => {
 
+    const res = await fetch(url);
+    const products = await res.json();
+    return products.filter(producto => producto.id === id)
   };
 
-
-  useEffect(() => getItem())
+  useEffect(() => {
+    getProduct()
+      .then((res) => {
+        setProduct(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
 
 
   return (
     <div>
-      <ItemDetail product={product}/>
+      <ItemDetail product={product} />
     </div>
   );
 }
