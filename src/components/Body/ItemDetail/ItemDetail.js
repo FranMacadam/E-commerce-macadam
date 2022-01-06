@@ -3,9 +3,6 @@ import './ItemDetail.scss'
 
 const ItemDetail = ({ product }) => {
 
-    /* const { show, setShow } = (false) */
-
-
     const addToCart = () => {
         console.log('I added the product to the cart!');
     };
