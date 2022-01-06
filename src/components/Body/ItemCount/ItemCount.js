@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
+import { Link } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
+import './ItemCount.scss'
 
 const ItemCount = props => {
 
@@ -36,14 +37,17 @@ const ItemCount = props => {
 
 
     return (
-        <div className='counterContainer'>
-            <Card.Text id='counter'>
-                {counter}
-            </Card.Text>
-            <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
-            <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
-            <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
-        </div>
+        <>
+            <div className='counterContainer'>
+                <p id='counter'>{counter}</p>
+                <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
+                <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
+                <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
+            </div>
+            <Link to='/cart' className="finishTransactionContainer">
+            <Button variant="danger" id='itemCards' className='finishTransaction'>Finish transaction</Button>
+            </Link>
+        </>
     );
 };
 

@@ -1,0 +1,21 @@
+.counterContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#counter{
+    font-size: 24px;
+    color: orange; 
+    background-color: red;
+}
+
+
+.finishTransactionContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.finishTransaction{
+    color: orange;
+    font-size: 30px;
+}
