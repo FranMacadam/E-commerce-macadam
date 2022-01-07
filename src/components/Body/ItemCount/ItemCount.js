@@ -34,29 +34,22 @@ const ItemCount = props => {
     }
 
 
-    let { buy, setBuy } = useState(false);
-
-
-    //Probe poner un useEffect y meter el if dentro pero ahi me da que setBuy no es
-    //una funcion. Si no pongo el useEffect me da unreachable code en el ult return
-    if (buy) {
-        return (
-            <Link to='/cart' className="finishTransactionContainer">
-                <Button variant="danger" id='itemCards' className='finishTransaction'>Finish transaction</Button>
-            </Link>
-        )
-    } else {
-        return null;
-    }
-
+    const [buy, setBuy] = useState(false);
 
     return (
-        <div className='counterContainer'>
-            <p id='counter'>{counter}</p>
-            <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
-            <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
-            <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
-            <Button variant="danger" id='itemCards' onClick={setBuy(true)}>✓</Button>
+        <div>
+
+            {buy ? <Link to='/cart' className="finishTransactionContainer">
+                <Button variant="danger" id='itemCards' className='finishTransaction'>Finish transaction</Button>
+            </Link> : null}
+
+            <div className='counterContainer'>
+                <p id='counter'>{counter}</p>
+                <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
+                <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
+                <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
+                <Button variant="danger" id='itemCards' onClick={setBuy(true)}>✓</Button>
+            </div>
         </div>
     );
 };
