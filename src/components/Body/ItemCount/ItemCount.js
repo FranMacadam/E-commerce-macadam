@@ -36,20 +36,30 @@ const ItemCount = props => {
 
     const [buy, setBuy] = useState(false);
 
+    const handleBuy = () => {
+        setBuy(true)
+    }
+    const handleCancel = () => {
+        setBuy(false)
+        setCounter(props.initial)
+    }
+
     return (
         <div>
-
-            {buy ? <Link to='/cart' className="finishTransactionContainer">
-                <Button variant="danger" id='itemCards' className='finishTransaction'>Finish transaction</Button>
-            </Link> : null}
-
             <div className='counterContainer'>
                 <p id='counter'>{counter}</p>
                 <Button variant="danger" id='itemCards' onClick={plus}>Plus</Button>
                 <Button variant="warning" id='itemCards' onClick={addToCartOnAdd}>Add to cart</Button>
                 <Button variant="danger" id='itemCards' onClick={minus}>Minus</Button>
-                <Button variant="danger" id='itemCards' onClick={setBuy(true)}>✓</Button>
+                <Button variant="danger" id='itemCards' onClick={handleBuy}>✅</Button>
+                <Button variant="danger" id='itemCards' onClick={handleCancel}>❌</Button>
             </div>
+
+            {buy ? (
+                <Link to='/cart' className="finishTransactionContainer">
+                    <Button variant="danger" id='itemCards' className='finishTransaction'>Finish transaction</Button>
+                </Link>
+            ) : null}
         </div>
     );
 };
