@@ -13,7 +13,6 @@ const ItemCount = props => {
         } else {
             console.log("No more stock, i'm sorry.")
         }
-
     }
 
     const onAdd = () => {
@@ -26,7 +25,7 @@ const ItemCount = props => {
     }
 
     const minus = () => {
-        if (counter > 1) {
+        if (counter > 0) {
             setCounter(counter - 1)
         } else {
             console.log("What are you thinking?")

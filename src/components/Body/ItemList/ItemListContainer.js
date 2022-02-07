@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom"
+import { getDocs, collection } from 'firebase/firestore'
+
+
 
 const ItemListContainer = props => {
   const addToCart = () => {

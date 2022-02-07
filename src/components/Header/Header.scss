@@ -12,6 +12,10 @@
     color: rgb(255, 83, 3);
 }
 
+.brandName:hover{
+    color: rgba(0,136,169,1);
+}
+
 li, a, button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -36,12 +40,8 @@ li, a, button {
     li{
         display: inline-block;
         padding: 0 20px;
-        a{
-            transition: all 0.3s ease 0s;
-            a:hover{
-                color: rgb(21, 35, 231);
-            }
-        }
+    }li:hover{
+        color:red;
     }
 }
 
@@ -55,5 +55,31 @@ li, a, button {
 }
 
 .btnHeader:hover{
-    background-color: rgba(0,136,169,0.8);
+    background-color: rgb(255, 83, 3);
+}
+
+.navLink{
+    text-decoration: none;
+    position: relative;
+}
+
+.navLink:hover{
+    color: rgb(255, 83, 3);
+}
+
+.navLink::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navLink:hover::before{
+    transform: scaleX(1);
 }
