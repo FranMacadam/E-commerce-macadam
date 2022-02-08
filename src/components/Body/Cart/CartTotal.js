@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Col, Card, Button, Row } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
-import myContext from '../../../contexts/myContext';
+import CartContext from '../../../contexts/CartContext';
 
 const CartTotal = () => {
-    const context = useContext(myContext);
+    const context = useContext(CartContext);
 
     return (
         <Row>

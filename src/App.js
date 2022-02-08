@@ -5,11 +5,11 @@ import Footer from "./components/Footer/Footer"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from "./components/Body/ItemDetail/ItemDetailContainer"
 import Cart from "./components/Body/Cart/Cart";
-import CartContext from "./contexts/cartContext"
+import CustomProvider from "./contexts/CartContext"
 
 const App = () => {
     return (
-            <CartContext>
+            <CustomProvider>
                 <BrowserRouter>
                     <Navbar />
                     <Routes>
@@ -20,7 +20,7 @@ const App = () => {
                     </Routes>
                     <Footer />
                 </BrowserRouter>
-            </CartContext>
+            </CustomProvider>
     )
 }
     ;

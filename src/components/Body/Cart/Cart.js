@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container, Col, Card, CardGroup, Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import myContext from '../../../contexts/myContext';
+import CartContext from '../../../contexts/CartContext';
 import CartItem from './CartItem';
 import CartTotal from './CartTotal';
 import CartForm from './CartForm';
 
 const Cart = () => {
-  let context = useContext(myContext);
+  let context = useContext(CartContext);
   let [showOrder, setShowOrder] = useState(0);
   useEffect(() => {
     if (showOrder) {

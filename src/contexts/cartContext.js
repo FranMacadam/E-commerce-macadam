@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Provider } from './myContext';
+import { useState, useEffect, createContext } from 'react';
 
-const CartContext = ({ children }) => {
+export const CartContext = createContext();
+
+const CustomProvider = ({ children }) => {
     const [items, setItems] = useState([]);
 
     const [totalQ, setTotalQ] = useState(0);
@@ -38,11 +39,11 @@ const CartContext = ({ children }) => {
 
     return (
         <>
-            <Provider value={{ items, setItems, addItem, removeItem, clear, isInCart, totalPrice, totalQ }}>
+            <CartContext.Provider value={{ items, setItems, addItem, removeItem, clear, isInCart, totalPrice, totalQ }}>
                 {children}
-            </Provider>
+            </CartContext.Provider>
         </>
     );
 };
 
-export default CartContext;
+export default CustomProvider;

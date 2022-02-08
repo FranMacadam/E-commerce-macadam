@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
-import { FaPlus, FaMinus, FaCartPlus } from 'react-icons';
+import { FaPlus, FaMinus, FaCartPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ItemCount = props => {
@@ -58,7 +58,7 @@ const ItemCount = props => {
             <Col className="mt-2" xs={12} lg={4}>
               <Row className="m-0">
                 <Button className="rounded-0" variant="primary" size="sm" onClick={() => props.onAdd(contador)}>
-                  Add to the cart <FaCartPlus />
+                  Add to cart <FaCartPlus />
                 </Button>
               </Row>
             </Col>

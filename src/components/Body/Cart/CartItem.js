@@ -2,11 +2,11 @@ import { Card, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import myContext from '../../../contexts/myContext';
+import CartContext from '../../../contexts/CartContext';
 import CardTitle from '../Card/CardTitle';
 
 function Item(props) {
-  const context = useContext(myContext);
+  const context = useContext(CartContext);
 
   return (
     <Card className="h-100 rounded-0 border-2 border-secondary shadow">
