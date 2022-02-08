@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import CartContext from '../../../contexts/CartContext';
+import {CartContext} from '../../../contexts/CartContext';
 
 function CartWidget() {
   let context = useContext(CartContext);

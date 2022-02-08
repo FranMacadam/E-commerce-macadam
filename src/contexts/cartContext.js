@@ -37,9 +37,21 @@ const CustomProvider = ({ children }) => {
         return items.find(item => item.id === i);
     }
 
+
+    const valueContext = { 
+        items, 
+        setItems, 
+        addItem, 
+        removeItem, 
+        clear, 
+        isInCart, 
+        totalPrice, 
+        totalQ
+    }
+
     return (
         <>
-            <CartContext.Provider value={{ items, setItems, addItem, removeItem, clear, isInCart, totalPrice, totalQ }}>
+            <CartContext.Provider value={valueContext}>
                 {children}
             </CartContext.Provider>
         </>

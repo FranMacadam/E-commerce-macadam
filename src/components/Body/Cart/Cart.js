@@ -1,20 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container, Col, Card, CardGroup, Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import CartContext from '../../../contexts/CartContext';
+import {CartContext} from '../../../contexts/CartContext';
 import CartItem from './CartItem';
 import CartTotal from './CartTotal';
 import CartForm from './CartForm';
 
 const Cart = () => {
-  let context = useContext(CartContext);
+  let {totalQ, clear, items} = useContext(CartContext);
   let [showOrder, setShowOrder] = useState(0);
   useEffect(() => {
     if (showOrder) {
-      context.clear();
+      clear();
     }
   }, [showOrder]); // eslint-disable-line react-hooks/exhaustive-deps
-  if (context.totalQ) {
+  if (totalQ) {
     return (
       <Container className="mt-2 min-vh-85">
         <Row>
@@ -26,7 +26,7 @@ const Cart = () => {
         </Row>
         <CardGroup className="my-2">
           <Row>
-            {context.items.map(item => {
+            {items.map(item => {
               return (
                 <Col key={item.id} xs={12} md={6} lg={4} className="p-2">
                   <CartItem producto={item} />
@@ -39,7 +39,7 @@ const Cart = () => {
         <CartForm setShowOrder={setShowOrder} />
       </Container>
     );
-  } else if (!context.totalQ && showOrder) {
+  } else if (!totalQ && showOrder) {
     return (
       <Container className="text-center mt-5 min-vh-75">
         <h2 className="h1 fontTitle mb-4">{`YOUR ORDER: ${showOrder}`}</h2>

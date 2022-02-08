@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { FaArrowCircleRight } from 'react-icons/fa';
-import CartContext from '../../../contexts/CartContext';
+import {CartContext} from '../../../contexts/CartContext';
 import { database } from '../../../Firebase'
 import MyLoader from '../../../MyLoader';
 import validator from 'validator';
 
 const CartForm = props => {
-  let context = useContext(CartContext);
+  let {totalPrice, items} = useContext(CartContext);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -34,9 +34,9 @@ const CartForm = props => {
       setError(false);
       setLoading(true);
       const buyer = { name: name, mail: email, phone: phone };
-      const total = context.totalPrice;
+      const total = totalPrice;
       const date = new Date();
-      const cart = context.items;
+      const cart = items;
       database
         .collection('orders')
         .add({ buyer, cart, date, total })

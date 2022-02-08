@@ -2,11 +2,11 @@ import { Card, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import CartContext from '../../../contexts/CartContext';
+import {CartContext} from '../../../contexts/CartContext';
 import CardTitle from '../Card/CardTitle';
 
 function Item(props) {
-  const context = useContext(CartContext);
+  const {removeItem} = useContext(CartContext);
 
   return (
     <Card className="h-100 rounded-0 border-2 border-secondary shadow">
@@ -54,7 +54,7 @@ function Item(props) {
               className="pb-1 pt-0 pe-1 ps-0 mt-1 me-0 border-0 rounded-pill"
               size="sm"
               variant="outline-primary"
-              onClick={() => context.removeItem(props.producto.id)}
+              onClick={() => removeItem(props.producto.id)}
             >
               <FaTrashAlt className="ms-1" />
             </Button>
