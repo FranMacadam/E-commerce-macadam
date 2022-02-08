@@ -2,39 +2,32 @@ import ItemDetail from './ItemDetail'
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-
-const ItemDetailContainer = () => {
-
-  const [product, setProduct] = useState([]);
-
-  let { id } = useParams();
+import { database } from '../../../Firebase'
+import MyLoader from '../../../MyLoader'
 
 
-  const url = `https://fakestoreapi.com/products/${id}`;
+function ItemDetailContainer() {
+  const [producto, setProducto] = useState([]);
+  const [loading, setLoading] = useState();
 
-  const getProduct = async () => {
-
-    const res = await fetch(url);
-    const products = await res.json();
-    return products
-  };
+  const detailParams = useParams();
 
   useEffect(() => {
-    getProduct()
-      .then((res) => {
-        setProduct(res);
+    setLoading(true);
+
+    database
+      .collection('items')
+      .doc(detailParams.id)
+      .get()
+      .then(resultado => {
+        const id = resultado.id;
+        const dataFinal = { id, ...resultado.data() };
+        setProducto(dataFinal);
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  });
+      .finally(() => setLoading(false));
+  }, [detailParams.id]);
 
-
-  return (
-    <div>
-      <ItemDetail product={product} />
-    </div>
-  );
+  return <>{loading ? <MyLoader /> : <ItemDetail producto={producto} />}</>;
 }
 
 export default ItemDetailContainer;

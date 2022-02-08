@@ -9,19 +9,18 @@ import CartContext from "./contexts/cartContext"
 
 const App = () => {
     return (
-        <CartContext>
-            <BrowserRouter>
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<ItemListContainer />} />
-                    <Route path="/Cart" element={<Cart />} />
-                    <Route path="/Pizzas" element={<ItemListContainer />} />
-                    <Route path="/Beers" element={<ItemListContainer />} />
-                    <Route path="/product/:id" element={<ItemDetailContainer />} />
-                </Routes>
-                <Footer />
-            </BrowserRouter>
-        </CartContext>
+            <CartContext>
+                <BrowserRouter>
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<ItemListContainer />} />
+                        <Route path="/Cart" element={<Cart />} />
+                        <Route path="/category/:id" element={<ItemListContainer />} />
+                        <Route path="/product/:id" element={<ItemDetailContainer />} />
+                    </Routes>
+                    <Footer />
+                </BrowserRouter>
+            </CartContext>
     )
 }
     ;

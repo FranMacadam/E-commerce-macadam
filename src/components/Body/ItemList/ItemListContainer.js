@@ -1,42 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom"
-import { getDocs, collection } from 'firebase/firestore'
-
+import { database } from '../../../Firebase'
+import MyLoader from '../../../MyLoader'
 
 
 const ItemListContainer = props => {
-  const addToCart = () => {
-    console.log('I added the product to the cart!');
-  };
-
-  const [data, setData] = useState([]);
   
-  const {id} = useParams()
-  
-  const url = 'https://fakestoreapi.com/products';
+  let [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const getProducts = async () => {
-    const res = await fetch(url);
-    const products = await res.json();
-    return products.filter(producto => producto.id === id)
-  }
+  const listParams = useParams();
 
   useEffect(() => {
-    getProducts();
-    setTimeout(() => {
-      fetch(url)
-        .then(res => res.json())
-        .then(json => setData(json));
-    }, 2000);
-});
+    setLoading(true);
+
+    const filtro = listParams.id
+      ? database
+          .collection('products')
+          .where('category', '==', listParams.id)
+      : database
+          .collection('products')
+
+    filtro
+
+      .get()
+      .then(resultados => {
+        const resultadoFinal = [];
+        resultados.forEach(resultado => {
+          const id = resultado.id;
+          const dataFinal = { id, ...resultado.data() };
+          resultadoFinal.push(dataFinal);
+          return resultadoFinal;
+        });
+        setData(resultadoFinal);
+      })
+      .finally(() => setLoading(false));
+  }, [listParams.id]);
 
 
-  return (
-    <div className="itemListContainer">
-      <ItemList products={data} addToCart={addToCart} />
-    </div>
-  );
-};
+  return <div className="itemListContainer">{loading ? <MyLoader /> : <ItemList productos={data} />}</div>;
+}
 
 export default ItemListContainer;
