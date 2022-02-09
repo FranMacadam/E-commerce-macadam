@@ -20,7 +20,7 @@ li, a, button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    color: #edf0f1;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -82,4 +82,34 @@ li, a, button {
 
 .navLink:hover::before{
     transform: scaleX(1);
+}
+
+.contactFormContainer{
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 60px;
+}
+
+.contact__form .form-control {
+    padding: 1.375rem .75rem;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #0c0c0c;
+    border-radius: 0 !important;
+    border: 1px solid #fff;
+}
+
+.contact__form input.form-control {
+    margin-bottom: 2em;
+    height: calc(2.5em + .75rem + 2px);
+}
+
+.btn {
+    color: white;
+    border: 2px solid white;
+}
+
+.btn:hover {
+    color: white
 }

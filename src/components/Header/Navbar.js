@@ -53,7 +53,9 @@ const Navbar = () => {
                     </Link>
                 </li>
             </ul>
-            <a href="aa"><button className="btnHeader">contact</button></a>
+            <Link to="/Contact">
+                <button className="btnHeader">contact</button>
+            </Link>
         </header>
     )
 };
