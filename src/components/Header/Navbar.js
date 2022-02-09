@@ -31,6 +31,8 @@ const Navbar = () => {
                 })
         }
     }, [id]);
+
+
     return (
         <header id="main-header" className="navbar">
             <Link to="/">
