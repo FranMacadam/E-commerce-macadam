@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 import { useParams } from "react-router-dom"
 import { database } from '../../../Firebase'
 import MyLoader from '../../../MyLoader'
-import { getDocs, query, collection, where } from "firebase/firestore"
+import { getDocs, query, collection } from "firebase/firestore"
 
 
 const ItemListContainer = () => {
@@ -15,9 +15,9 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    const productosCollection = collection(database, "productos")
+    const productosCollection = collection(database, "Products")
     if (id != null) {
-      const consulta = query(productosCollection, where("category", "==", id))
+      const consulta = query(productosCollection)
       getDocs(consulta)
         .then(({ docs }) => {
           setList(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
     }
   }, [id]);
 
-  return <div className="itemListContainer">{loading ? <MyLoader /> : <ItemList products={list} />}</div>;
+  return <div className="itemListContainer">{loading ? <MyLoader /> : <ItemList list={list} />}</div>;
 }
 
 export default ItemListContainer;

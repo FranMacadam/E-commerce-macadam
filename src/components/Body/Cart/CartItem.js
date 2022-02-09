@@ -3,29 +3,24 @@ import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import {CartContext} from '../../../contexts/CartContext';
-import CardTitle from '../Card/CardTitle';
 
-function Item(props) {
+function CartItem(props) {
   const {removeItem} = useContext(CartContext);
-
+  console.log(props.key)
   return (
     <Card className="h-100 rounded-0 border-2 border-secondary shadow">
       <Card.Body className="p-1">
         <Row>
           <Col xs={4} className="px-2 pt-2 pb-0">
-            <Link to={`/item/${props.producto.id}`}>
+            <Link to={`/product/${props.key}`}>
               <div className="card-img-wrap p-2">
-                <Card.Img src={props.producto.image} alt={props.producto.title} />
+                <Card.Img src={props.product.image} alt={props.product.title} />
               </div>
             </Link>
           </Col>
           <Col className="px-0 pt-3">
-            <Link to={`/item/${props.producto.id}`}>
-              <CardTitle
-                producto={props.producto}
-                textClasses="fw-bold text-dark me-3 mb-1 fontTitle"
-                starClasses="text-warning fs-5 me-1 mb-1"
-              />
+            <Link to={`/product/${props.key}`}>
+              {props.product.title}
             </Link>
           </Col>
         </Row>
@@ -34,16 +29,16 @@ function Item(props) {
         <Row className="mt-0 px-1">
           <Col xs={6} className="text-start">
             <span className="fs-6">
-              <small>{`${props.producto.q} x ${Intl.NumberFormat('en-IN', {
+              <small>{`${props.product.q} x ${Intl.NumberFormat('en-IN', {
                 style: 'currency',
-                currency: 'USS',
+                currency: 'Ars',
                 minimumFractionDigits: 2,
-              }).format(props.producto.price)}`}</small>
+              }).format(props.product.price)}`}</small>
             </span>
           </Col>
           <Col xs={6} className="text-end fs-6 fw-bold">
-            {Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USS', minimumFractionDigits: 2 }).format(
-              props.producto.price * props.producto.q
+            {Intl.NumberFormat('en-IN', { style: 'currency', currency: 'Ars', minimumFractionDigits: 2 }).format(
+              props.product.price * props.product.q
             )}
           </Col>
         </Row>
@@ -54,7 +49,7 @@ function Item(props) {
               className="pb-1 pt-0 pe-1 ps-0 mt-1 me-0 border-0 rounded-pill"
               size="sm"
               variant="outline-primary"
-              onClick={() => removeItem(props.producto.id)}
+              onClick={() => removeItem(props.product.id)}
             >
               <FaTrashAlt className="ms-1" />
             </Button>
@@ -65,4 +60,4 @@ function Item(props) {
   );
 }
 
-export default Item;
+export default CartItem;
