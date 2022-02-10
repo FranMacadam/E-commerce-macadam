@@ -6,7 +6,6 @@ import Context from '../../../contexts/myContext';
 
 function CartItem(props) {
   const {removeItem} = useContext(Context);
-  console.log(props.key)
   return (
     <Card className="h-100 rounded-0 border-2 border-secondary shadow">
       <Card.Body className="p-1">

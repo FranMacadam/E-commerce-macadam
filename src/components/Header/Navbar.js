@@ -52,7 +52,7 @@ const Navbar = () => {
                         <span className="material-icons" id='shoppingCart'>
                             shopping_cart
                         </span>
-                        {totalQ}
+                        <p>{totalQ}</p>
                     </Link>
                 </li>
             </ul>

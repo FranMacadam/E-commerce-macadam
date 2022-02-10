@@ -10,7 +10,7 @@ const CartContext = ({ children }) => {
     useEffect(() => {
         setTotalQ(items.reduce((sum, item) => sum + item.stock, 0));
         setTotalPrice(items.reduce((sum, item) => sum + item.price * item.stock, 0))
-    }, [items]); 
+    }, [items]);
 
     function addItem(id, stock, title, price, image, category) {
         setItems([
@@ -36,14 +36,14 @@ const CartContext = ({ children }) => {
     }
 
 
-    const valueContext = { 
-        items, 
-        setItems, 
-        addItem, 
-        removeItem, 
-        clear, 
-        isInCart, 
-        totalPrice, 
+    const valueContext = {
+        items,
+        setItems,
+        addItem,
+        removeItem,
+        clear,
+        isInCart,
+        totalPrice,
         totalQ
     }
 
