@@ -2,10 +2,10 @@ import { Card, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
-import {CartContext} from '../../../contexts/CartContext';
+import Context from '../../../contexts/myContext';
 
 function CartItem(props) {
-  const {removeItem} = useContext(CartContext);
+  const {removeItem} = useContext(Context);
   console.log(props.key)
   return (
     <Card className="h-100 rounded-0 border-2 border-secondary shadow">
@@ -29,7 +29,7 @@ function CartItem(props) {
         <Row className="mt-0 px-1">
           <Col xs={6} className="text-start">
             <span className="fs-6">
-              <small>{`${props.product.q} x ${Intl.NumberFormat('en-IN', {
+              <small>{`${props.product.stock} x ${Intl.NumberFormat('en-IN', {
                 style: 'currency',
                 currency: 'Ars',
                 minimumFractionDigits: 2,
@@ -38,7 +38,7 @@ function CartItem(props) {
           </Col>
           <Col xs={6} className="text-end fs-6 fw-bold">
             {Intl.NumberFormat('en-IN', { style: 'currency', currency: 'Ars', minimumFractionDigits: 2 }).format(
-              props.product.price * props.product.q
+              props.product.price * props.product.stock
             )}
           </Col>
         </Row>

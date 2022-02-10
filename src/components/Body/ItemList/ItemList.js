@@ -4,7 +4,7 @@ const ItemList = props => {
     return (
         <div className="item-list">
             {props.list.map(product => (
-                <Item key={props.list.id} product={product}/>
+                <Item key={product.id} product={product}/>
             ))}
         </div>
     )

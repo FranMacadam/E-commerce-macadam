@@ -85,10 +85,10 @@ li, a, button {
 }
 
 .contactFormContainer{
-    background-color: #000;
     color: #ffffff;
     font-family: 'Raleway', sans-serif;
-    padding-top: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .contact__form .form-control {

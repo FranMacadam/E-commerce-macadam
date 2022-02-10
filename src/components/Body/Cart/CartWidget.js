@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import {CartContext} from '../../../contexts/CartContext';
+import {Context} from '../../../contexts/myContext';
 
 function CartWidget() {
-  let context = useContext(CartContext);
+  let context = useContext(Context);
 
   return (
     <span className="text-light ms-2">

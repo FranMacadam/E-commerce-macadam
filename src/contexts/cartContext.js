@@ -1,27 +1,25 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect } from 'react';
+import { Provider } from '../contexts/myContext'
 
-export const CartContext = createContext();
-
-const CustomProvider = ({ children }) => {
+const CartContext = ({ children }) => {
     const [items, setItems] = useState([]);
 
     const [totalQ, setTotalQ] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        setTotalQ(items.reduce((sum, item) => sum + item.q, 0));
-        setTotalPrice(items.reduce((sum, item) => sum + item.price * item.q, 0))
+        setTotalQ(items.reduce((sum, item) => sum + item.stock, 0));
+        setTotalPrice(items.reduce((sum, item) => sum + item.price * item.stock, 0))
     }, [items]); 
 
-    function addItem(id, q, title, price, description, image, category, discount) {
+    function addItem(id, stock, title, price, image, category) {
         setItems([
             ...items,
             {
                 id: id,
-                q: q,
+                stock: stock,
                 title: title,
-                price: price / (discount + 1),
-                description: description,
+                price: price,
                 image: image,
                 category: category,
             },
@@ -51,11 +49,11 @@ const CustomProvider = ({ children }) => {
 
     return (
         <>
-            <CartContext.Provider value={valueContext}>
+            <Provider value={valueContext}>
                 {children}
-            </CartContext.Provider>
+            </Provider>
         </>
     );
 };
 
-export default CustomProvider;
+export default CartContext;

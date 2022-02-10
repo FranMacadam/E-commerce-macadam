@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { FaShoppingCart, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import {CartContext} from '../../../contexts/CartContext';
+import Context from '../../../contexts/myContext';
 
 const ItemInCart = props => {
-  let context = useContext(CartContext);
+  let context = useContext(Context);
 
   return (
     <Row>

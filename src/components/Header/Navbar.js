@@ -1,12 +1,14 @@
 import "./Header.scss";
 import { Link } from 'react-router-dom'
 import { getDocs, query, collection } from "firebase/firestore"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { database } from '../../Firebase'
 import { useParams } from "react-router-dom"
+import Context from '../../contexts/myContext';
 
 const Navbar = () => {
 
+    const { totalQ } = useContext(Context)
     let [list, setList] = useState([])
     const { id } = useParams();
 
@@ -50,6 +52,7 @@ const Navbar = () => {
                         <span className="material-icons" id='shoppingCart'>
                             shopping_cart
                         </span>
+                        {totalQ}
                     </Link>
                 </li>
             </ul>

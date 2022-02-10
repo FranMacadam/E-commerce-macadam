@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.scss'
-import { CartContext } from '../../../contexts/CartContext'
+import Context from '../../../contexts/myContext';
 import ItemInCart from '../Cart/ItemInCart'
 import ItemBadges from '../Item/ItemBadges'
 import ItemPrice from '../Item/ItemPrice'
@@ -10,7 +10,7 @@ import ItemPrice from '../Item/ItemPrice'
 
 const ItemDetail = ({ producto }) => {
 
-    let { addItem, isInCart } = useContext(CartContext)
+    let { addItem, isInCart } = useContext(Context)
 
     const onAdd = () => {
         addItem(

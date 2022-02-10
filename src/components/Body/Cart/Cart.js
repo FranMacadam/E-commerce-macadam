@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container, Col, Card, CardGroup, Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import {CartContext} from '../../../contexts/CartContext';
+import Context from '../../../contexts/myContext';
 import CartItem from './CartItem';
 import CartTotal from './CartTotal';
 import CartForm from './CartForm';
 
 const Cart = () => {
-  let {totalQ, clear, items} = useContext(CartContext);
+  let {totalQ, clear, items} = useContext(Context);
   let [showOrder, setShowOrder] = useState(0);
   useEffect(() => {
     if (showOrder) {
@@ -29,7 +29,7 @@ const Cart = () => {
             {items.map(item => {
               return (
                 <Col key={item.id} xs={12} md={6} lg={4} className="p-2">
-                  <CartItem producto={item} />
+                  <CartItem product={item} />
                 </Col>
               );
             })}

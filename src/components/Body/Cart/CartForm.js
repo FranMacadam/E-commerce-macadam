@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { FaArrowCircleRight } from 'react-icons/fa';
-import {CartContext} from '../../../contexts/CartContext';
+import Context from '../../../contexts/myContext';
 import { database } from '../../../Firebase'
 import MyLoader from '../../../MyLoader';
 import validator from 'validator';
 
 const CartForm = props => {
-  let {totalPrice, items} = useContext(CartContext);
+  let {totalPrice, items} = useContext(Context);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
